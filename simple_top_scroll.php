@@ -31,7 +31,7 @@ function encode_topScroll_anchor(){ ?>
 add_action('admin_menu', 'encode_topScroll_menu');
 
 function encode_topScroll_menu() {
-$encode_web_icon = 'http://encodetheweb.com/wordpress-theme-img/projects.png');
+$encode_web_icon = 'http://encodetheweb.com/wordpress-theme-img/projects.png';
 
 	add_menu_page('Encode Web Projects - Top Scroll Settings', 'Simple Top Scroll Settings', 'administrator', 'encode-top-scroll-settings', 'encode_top_scroll_settings_page', $encode_web_icon);
 }
