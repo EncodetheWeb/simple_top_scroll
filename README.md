@@ -6,7 +6,7 @@ This will add a button to your pages that will appear after user scrolls 50px fr
 
 # Install
 
-Download the .zip file and remove "master" from filename. Logon to your WordPress Admin console. Click on Plugins -> Add New then click 'Upload Plugin'.
+Download the .zip file and remove "master" from filename and subfolder. Logon to your WordPress Admin console. Click on Plugins -> Add New then click 'Upload Plugin'.
 
 ![alt tag](http://encodetheweb.com/wordpress-theme-img/screenshot-scroll-1.PNG)
 
