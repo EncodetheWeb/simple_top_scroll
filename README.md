@@ -1,8 +1,8 @@
-# Simple_Top_Scroll
+# WP_Simple_Top_Scroll
 
 # General
 
-This will add a button to your pages that will appear after user scrolls 50px from top. It will fade in and once clicked will scroll up to the top using jQuery's scrollTop().
+WordPress Plugin. This will add a button to your pages that will appear after user scrolls 50px from top. It will fade in and once clicked will scroll up to the top using jQuery's scrollTop().
 
 # Install
 
