@@ -6,7 +6,7 @@ WordPress Plugin. This will add a button to your pages that will appear after us
 
 # Install
 
-Download the .zip file and **remove "-master" from filename and subfolder so both should be renamed "simple_top_scroll" not "simple_top_scroll-master"**. Logon to your WordPress Admin console. Click on Plugins -> Add New then click 'Upload Plugin'.
+Download the .zip file and **rename it "simple_top_scroll"**. Logon to your WordPress Admin console. Click on Plugins -> Add New then click 'Upload Plugin'.
 
 ![alt tag](http://encodetheweb.com/wordpress-theme-img/screenshot-scroll-1.PNG)
 
