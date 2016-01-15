@@ -23,5 +23,3 @@ Click on the new menu tab on the left 'Simple Top Scroll Settings'
 From there you can select the style you want and click 'Save Changes'
 
 ![alt tag](http://encodetheweb.com/wordpress-theme-img/arrow-list.PNG)
-
-# There will be more customizing coming soon.
