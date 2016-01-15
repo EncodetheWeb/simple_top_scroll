@@ -1,4 +1,4 @@
-# WP_Simple_Top_Scroll
+# simple_top_scroll
 
 # General
 
