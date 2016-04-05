@@ -2,9 +2,9 @@
 /* Plugin Name: Simple Top Scroll by Encode Web Projects
 Plugin URI: http://encodetheweb.com/en/encode-projects/
 Description: To Top Scroller. Can customize the shape and color. Fades in and out and scrolls smoothly to top when clicked.
-Version: 1.0
+Version: 1.0.1
 Author: Encode Web Projects
-Author URI: http://encodetheweb.com/en/
+Author URI: http://encodetheweb.com/en/encode-projects
 License: GPLv2 or later
 */
 
@@ -23,48 +23,65 @@ add_action('wp_head', 'encode_topScroll_anchor');
 
 function encode_topScroll_anchor(){ ?>
     
-<a href="#" id="scrolltoTop"></a>
+    <a href="#" id="scrolltoTop"></a>
     
-<?php    
+    <?php    
 }
 
 add_action('admin_menu', 'encode_topScroll_menu');
 
 function encode_topScroll_menu() {
-$encode_web_icon = 'http://encodetheweb.com/wordpress-theme-img/projects.png';
+    $encode_web_icon = 'http://encodetheweb.com/wordpress-theme-img/projects.png';
 
 	add_menu_page('Encode Web Projects - Top Scroll Settings', 'Simple Top Scroll Settings', 'administrator', 'encode-top-scroll-settings', 'encode_top_scroll_settings_page', $encode_web_icon);
 }
 
 function encode_top_scroll_settings_page() { ?>
 
-<div class="wrap">
-<h2>Simple Top Scroll Settings by Encode Web Projects</h2>
+    <div class="wrap">
 
-<form method="post" action="options.php">
+    <div style="width:50%;">
+        <h2>Simple Top Scroll Settings</h2>
 
-    <?php settings_fields( 'encode-top-scroll-settings-group' ); ?>
-    <?php do_settings_sections( 'encode-top-scroll-settings-group' ); ?>
+        <form method="post" action="options.php">
+
+        <?php settings_fields( 'encode-top-scroll-settings-group' ); ?>
+        <?php do_settings_sections( 'encode-top-scroll-settings-group' ); ?>
 	
-    <table class="form-table">
-        <tr valign="top">
-        <th scope="row">Scroll Button Color: </th>
-<td><select name="scroll_color"><option value="rgba(0, 0, 0, 0.5)">Grey (default)</option><option value="rgba(0, 0, 0, 1)">Black</option><option value="rgba(0, 105, 255, 0.5)">Blue</option><option value="rgba(255, 0, 0, 0.5)">Red</option></select>
-</td> </tr>
-<tr>
-<th scope="row">Scroll Button Shape: </th>
-<td><select name="scroll_shape"><option value="0px">Square (default) </option><option value="200px">Round</option></select></td> </tr>
-        </tr>
-
-    </table>
+        <table class="form-table">
+            <tr valign="top">
+            <th scope="row">Scroll Button Color: </th>
+            <td>
+            <select name="scroll_color"><option value="rgba(0, 0, 0, 0.5)">Grey (default)</option><option value="rgba(0, 0, 0, 1)">Black</option><option value="rgba(0, 105, 255, 0.5)">Blue</option><option value="rgba(255, 0, 0, 0.5)">Red</option></select>
+            </td>
+            </tr><tr>
+            <th scope="row">Scroll Button Shape: </th>
+            <td><select name="scroll_shape"><option value="0px">Square (default) </option><option value="200px">Round</option></select></td> </tr>
+            </tr>
+        </table>
     
-    <?php submit_button(); ?>
+        <?php submit_button(); ?>
 
-</form>
+        </form>
+    </div>
+    <div style="width:50%; position:fixed; left:55%;">
+
+        <div style="width:350px;margin: 0 auto;">
+            <img src="http://encodetheweb.com/img/Encode-WebProjects.png" width="350" />
+        </div>
+    <div style="width:350px; margin:0 auto;">
+
+    <h1> Simple Top Scroll by Encode Web Solutions:</h1>
+
+    <h2>Version: 1.0.1</h2>
+
+
+    <h2>Check out our Demo</h2>
+    <a class="button button-primary" href="http://gobig.encodetheweb.com" target="_blank"> Launch Demo </a>
+
+    </div>
 </div>
-
-<?php
-}
+<?php }
 
 add_action( 'admin_init', 'encode_top_scroll_settings' );
 
