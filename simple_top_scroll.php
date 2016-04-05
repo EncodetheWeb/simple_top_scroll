@@ -51,13 +51,22 @@ function encode_top_scroll_settings_page() { ?>
         <table class="form-table">
             <tr valign="top">
             <th scope="row">Scroll Button Color: </th>
-            <td>
-            <select name="scroll_color"><option value="rgba(0, 0, 0, 0.5)">Grey (default)</option><option value="rgba(0, 0, 0, 1)">Black</option><option value="rgba(0, 105, 255, 0.5)">Blue</option><option value="rgba(255, 0, 0, 0.5)">Red</option></select>
+             <td>
+	   <?php $scroll_color = get_option('scroll_color'); ?>
+            <select name="scroll_color" id="scroll_color">
+            <option value="rgba(0, 0, 0, 0.5)" <?php if ( $scroll_color == 'rgba(0, 0, 0, 0.5)' ) echo 'selected="selected"'; ?>>Grey (default)</option>
+            <option value="rgba(0, 0, 0, 1)" <?php if ( $scroll_color == 'rgba(0, 0, 0, 1)' ) echo 'selected="selected"'; ?>>Black</option>
+            <option value="rgba(0, 105, 255, 0.5)" <?php if ( $scroll_color == 'rgba(0, 105, 255, 0.5)' ) echo 'selected="selected"'; ?>>Blue</option>
+            <option value="rgba(255, 0, 0, 0.5)" <?php if ( $scroll_color == 'rgba(255, 0, 0, 0.5)' ) echo 'selected="selected"'; ?>>Red</option>
+	</select>
             </td>
             </tr><tr>
             <th scope="row">Scroll Button Shape: </th>
-            <td><select name="scroll_shape"><option value="0px">Square (default) </option><option value="200px">Round</option></select></td> </tr>
-            </tr>
+            <td>
+	    <?php $scroll_shape = get_option('scroll_shape'); ?>
+	    <select name="scroll_shape" id="scroll_shape">
+            <option value="0px" <?php if ( $scroll_shape == '0px' ) echo 'selected="selected"'; ?>>Square (default) </option>
+            <option value="200px" <?php if ( $scroll_shape == '200px' ) echo 'selected="selected"'; ?>>Round</option></select></td> </tr>
         </table>
     
         <?php submit_button(); ?>
@@ -76,8 +85,8 @@ function encode_top_scroll_settings_page() { ?>
     <h2>Version: 1.0.1</h2>
 
 
-    <h2>Check out our Demo</h2>
-    <a class="button button-primary" href="http://gobig.encodetheweb.com" target="_blank"> Launch Demo </a>
+    <h2>Check out our other open soruce Projects</h2>
+    <a class="button button-primary" href="http://encodetheweb.com/en/encode-projects" target="_blank"> See More </a>
 
     </div>
 </div>
