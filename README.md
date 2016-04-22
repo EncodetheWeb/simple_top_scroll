@@ -18,8 +18,5 @@ You can customize how you want the scroll button to look.
 
 Click on the new menu tab on the left 'Simple Top Scroll Settings'
 
-![alt tag](http://encodetheweb.com/wordpress-theme-img/screenshot-scroll-2.PNG)
-
 From there you can select the style you want and click 'Save Changes'
 
-![alt tag](http://encodetheweb.com/wordpress-theme-img/arrow-list.PNG)
