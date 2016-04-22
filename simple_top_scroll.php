@@ -91,7 +91,7 @@ function encode_top_scroll_settings_page() { ?>
 
         </form>
     </div>
-    <div style="width:50%; position:fixed; left:55%;">
+    <div style="width:50%; position:fixed; left:55%;top: 100px;">
 
         <div style="width:350px;margin: 0 auto;">
             <img src="http://encodetheweb.com/img/Encode-WebProjects.png" width="350" />
