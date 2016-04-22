@@ -8,15 +8,29 @@ Author URI: http://encodetheweb.com/en/encode-projects
 License: GPLv2 or later
 */
 
-add_action('wp_enqueue_scripts', 'encode_topScroll_files');
+add_action('admin_enqueue_scripts', 'encode_topScroll_files');
 
 function encode_topScroll_files(){
-    
-    wp_register_style( 'scroll-top-css', plugins_url('simple_top_scroll/css/scrollTop.css'), array(), null, false);
-    wp_enqueue_style( 'scroll-top-css' );
 	
-    wp_register_script( 'jquery-css', plugins_url('simple_top_scroll/js/jquery-2-1-3.min.js'), array(), null, false);
-    wp_enqueue_script( 'jquery-css' );
+    wp_register_script( 'jquery-x', plugins_url('simple_top_scroll/js/jquery-2-1-3.min.js'), array(), null, false);
+    wp_enqueue_script( 'jquery-x' );
+	
+	wp_enqueue_media();
+	
+	wp_enqueue_script('thickbox');
+    
+    wp_enqueue_style('thickbox');
+ 
+    wp_enqueue_script('media-upload');
+
+	wp_enqueue_style( 'wp-color-picker' );
+
+	wp_enqueue_script('wp-color-picker', admin_url( 'js/color-picker.min.js' ), array( 'iris' ), false, 1);
+
+	wp_enqueue_script('iris', admin_url( 'js/iris.min.js' ), array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ), false, 1);
+	
+	wp_register_script( 'jquery-admin', plugins_url('simple_top_scroll/js/admin-effects.js'), array(), null, false);
+    wp_enqueue_script( 'jquery-admin' );
 }
 
 add_action('wp_head', 'encode_topScroll_anchor');
@@ -45,29 +59,33 @@ function encode_top_scroll_settings_page() { ?>
 
         <form method="post" action="options.php">
 
-        <?php settings_fields( 'encode-top-scroll-settings-group' ); ?>
-        <?php do_settings_sections( 'encode-top-scroll-settings-group' ); ?>
+        <?php
+		settings_fields("encode-top-scroll-settings-group"); 
+        do_settings_sections("encode-top-scroll-settings-group");
+		?>
 	
         <table class="form-table">
             <tr valign="top">
-            <th scope="row">Scroll Button Color: </th>
-             <td>
-	   <?php $scroll_color = get_option('scroll_color'); ?>
-            <select name="scroll_color" id="scroll_color">
-            <option value="rgba(0, 0, 0, 0.5)" <?php if ( $scroll_color == 'rgba(0, 0, 0, 0.5)' ) echo 'selected="selected"'; ?>>Grey (default)</option>
-            <option value="rgba(0, 0, 0, 1)" <?php if ( $scroll_color == 'rgba(0, 0, 0, 1)' ) echo 'selected="selected"'; ?>>Black</option>
-            <option value="rgba(0, 105, 255, 0.5)" <?php if ( $scroll_color == 'rgba(0, 105, 255, 0.5)' ) echo 'selected="selected"'; ?>>Blue</option>
-            <option value="rgba(255, 0, 0, 0.5)" <?php if ( $scroll_color == 'rgba(255, 0, 0, 0.5)' ) echo 'selected="selected"'; ?>>Red</option>
-	</select>
-            </td>
-            </tr><tr>
-            <th scope="row">Scroll Button Shape: </th>
+            <th scope="row">Scroll Button Colour: </th>
             <td>
-	    <?php $scroll_shape = get_option('scroll_shape'); ?>
-	    <select name="scroll_shape" id="scroll_shape">
-            <option value="0px" <?php if ( $scroll_shape == '0px' ) echo 'selected="selected"'; ?>>Square (default) </option>
-            <option value="200px" <?php if ( $scroll_shape == '200px' ) echo 'selected="selected"'; ?>>Round</option></select></td> </tr>
-        </table>
+			<?php $default_hcolor = '#ffffff'; 	?>
+			<div class="top_scroll_color_bg" style="width:100px; height:50px; display:inline-block; background-color: <?php echo get_option('top_scroll_color', $default_hcolor ); ?>"> 
+				<input type="text" data-default-color="#effeff" name="top_scroll_color" id="top_scroll_color" class="top_scroll_color button" value="<?php echo get_option('top_scroll_color'); ?>" style="margin-left:30px; width: 100px; height:50px;"/>
+			</div>
+			<a href="#" class="select_toggle2 button" style="display:none; width:100px; height:50px; margin-left:50px; line-height: 48px!important;">Pick Color</a>
+			</td>
+			<tr>
+			<th>Scroll Button Shape: </th>
+			<td>
+		<?php $scroll_shape = get_option('scroll_shape'); ?>
+		
+			<input type="radio" id="scroll_shape" name="scroll_shape" <?php if($scroll_shape == '200px') echo 'checked="checked"'; ?> value="200px" />
+			<img src="<?php echo plugins_url('simple_top_scroll/img/round.png') ?>" style="width: 100px;" /><br>
+			<input type="radio" id="scroll_shape" name="scroll_shape" <?php if($scroll_shape == '0px') echo 'checked="checked"'; ?> value="0px" />
+			<img src="<?php echo plugins_url('simple_top_scroll/img/square.png') ?>" style="width: 100px;" /><br>
+			</tr>
+			</td>
+		</table>
     
         <?php submit_button(); ?>
 
@@ -95,10 +113,9 @@ function encode_top_scroll_settings_page() { ?>
 add_action( 'admin_init', 'encode_top_scroll_settings' );
 
 function encode_top_scroll_settings() {
-	register_setting( 'encode-top-scroll-settings-group', 'scroll_color' );
 	register_setting( 'encode-top-scroll-settings-group', 'scroll_shape' );
+    register_setting("encode-top-scroll-settings-group", "top_scroll_color");
 }
-
 
 add_action('wp_enqueue_scripts', 'encode_scripts');
 
@@ -110,9 +127,12 @@ function encode_scripts() {
     wp_enqueue_script( 'scrollTop_init_core' );
 
     wp_register_script('scrollTop_init', plugins_url('simple_top_scroll/js/scrollTop.initialize.js'), array('jquery'), '', true);
-    wp_enqueue_script('scrollTop_init');
+    wp_enqueue_script('scrollTop_init'); 
+	
+	wp_register_style( 'scroll-top-css', plugins_url('simple_top_scroll/css/scrollTop.css'), array(), null, false);
+    wp_enqueue_style( 'scroll-top-css' );
 
-    $scroll_color = (get_option('scroll_color') == '') ? "rgba(0, 0, 0, 0.5)" : get_option('scroll_color');
+    $scroll_color = (get_option('top_scroll_color') == '') ? "rgba(0, 0, 0, 0.5)" : get_option('top_scroll_color');
 
     $scroll_shape = (get_option('scroll_shape') == '') ? "0px" : get_option('scroll_shape');
 

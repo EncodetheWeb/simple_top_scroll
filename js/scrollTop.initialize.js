@@ -1,4 +1,5 @@
 var j$ = jQuery.noConflict();
+
 j$(function () {
     j$('#scrolltoTop').topScroll({
 		backgroundColor : scroll_settings.backgroundColor,

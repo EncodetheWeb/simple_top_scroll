@@ -2,7 +2,7 @@
 
 $.fn.topScroll = function(options) {
 
-j$ = jQuery.noConflict();
+var j$ = jQuery.noConflict();
 
     var e = j$.extend({
         // These are the defaults.
