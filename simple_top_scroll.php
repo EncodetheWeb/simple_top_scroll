@@ -103,7 +103,7 @@ function encode_top_scroll_settings_page() { ?>
     <h2>Version: 1.0.1</h2>
 
 
-    <h2>Check out our other open soruce Projects</h2>
+    <h2>Check out our other open source Projects</h2>
     <a class="button button-primary" href="http://encodetheweb.com/en/encode-projects" target="_blank"> See More </a>
 
     </div>
