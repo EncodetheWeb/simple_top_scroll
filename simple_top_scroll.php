@@ -15,21 +15,19 @@ function encode_topScroll_files(){
     wp_register_script( 'jquery-x', plugins_url('simple_top_scroll/js/jquery-2-1-3.min.js'), array(), null, false);
     wp_enqueue_script( 'jquery-x' );
 	
-	wp_enqueue_media();
-	
-	wp_enqueue_script('thickbox');
+    wp_enqueue_media();
+    wp_enqueue_script('thickbox');
     
     wp_enqueue_style('thickbox');
  
     wp_enqueue_script('media-upload');
-
-	wp_enqueue_style( 'wp-color-picker' );
-
-	wp_enqueue_script('wp-color-picker', admin_url( 'js/color-picker.min.js' ), array( 'iris' ), false, 1);
-
-	wp_enqueue_script('iris', admin_url( 'js/iris.min.js' ), array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ), false, 1);
 	
-	wp_register_script( 'jquery-admin', plugins_url('simple_top_scroll/js/admin-effects.js'), array(), null, false);
+    wp_enqueue_style( 'wp-color-picker' );
+    wp_enqueue_script('wp-color-picker', admin_url( 'js/color-picker.min.js' ), array( 'iris' ), false, 1);
+
+    wp_enqueue_script('iris', admin_url( 'js/iris.min.js' ), array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ), false, 1);
+	
+    wp_register_script( 'jquery-admin', plugins_url('simple_top_scroll/js/admin-effects.js'), array(), null, false);
     wp_enqueue_script( 'jquery-admin' );
 }
 
@@ -46,8 +44,7 @@ add_action('admin_menu', 'encode_topScroll_menu');
 
 function encode_topScroll_menu() {
     $encode_web_icon = echo plugins_url('simple_top_scroll/img/platinumjay-20x20.png');
-
-	add_menu_page('Jayson Exel - Top Scroll Settings', 'Simple Top Scroll Settings', 'administrator', 'encode-top-scroll-settings', 'encode_top_scroll_settings_page', $encode_web_icon);
+    add_menu_page('Jayson Exel - Top Scroll Settings', 'Simple Top Scroll Settings', 'administrator', 'encode-top-scroll-settings', 'encode_top_scroll_settings_page', $encode_web_icon);
 }
 
 function encode_top_scroll_settings_page() { ?>
@@ -113,14 +110,13 @@ function encode_top_scroll_settings_page() { ?>
 add_action( 'admin_init', 'encode_top_scroll_settings' );
 
 function encode_top_scroll_settings() {
-	register_setting( 'encode-top-scroll-settings-group', 'scroll_shape' );
+    register_setting( 'encode-top-scroll-settings-group', 'scroll_shape' );
     register_setting("encode-top-scroll-settings-group", "top_scroll_color");
 }
 
 add_action('wp_enqueue_scripts', 'encode_scripts');
 
 function encode_scripts() {
-
     wp_enqueue_script('jquery');
 
     wp_register_script( 'scrollTop_init_core', plugins_url('simple_top_scroll/js/scrollTop.js'), array('jquery'), '', true);
@@ -129,7 +125,7 @@ function encode_scripts() {
     wp_register_script('scrollTop_init', plugins_url('simple_top_scroll/js/scrollTop.initialize.js'), array('jquery'), '', true);
     wp_enqueue_script('scrollTop_init'); 
 	
-	wp_register_style( 'scroll-top-css', plugins_url('simple_top_scroll/css/scrollTop.css'), array(), null, false);
+    wp_register_style( 'scroll-top-css', plugins_url('simple_top_scroll/css/scrollTop.css'), array(), null, false);
     wp_enqueue_style( 'scroll-top-css' );
 
     $scroll_color = (get_option('top_scroll_color') == '') ? "rgba(0, 0, 0, 0.5)" : get_option('top_scroll_color');
