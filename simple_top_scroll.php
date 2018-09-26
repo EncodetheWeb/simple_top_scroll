@@ -1,10 +1,10 @@
 <?php
 /* Plugin Name: Simple Top Scroll by Encode Web Projects
-Plugin URI: http://encodetheweb.com/en/encode-projects/
+Plugin URI: https://github.com/PlatinumJay/simple_top_scroll/
 Description: To Top Scroller. Can customize the shape and color. Fades in and out and scrolls smoothly to top when clicked.
 Version: 1.0.1
-Author: Encode Web Projects
-Author URI: http://encodetheweb.com/en/encode-projects
+Author: Jayson Exel
+Author URI: https://github.com/PlatinumJay/simple_top_scroll/
 License: GPLv2 or later
 */
 
@@ -104,7 +104,7 @@ function encode_top_scroll_settings_page() { ?>
 
 
     <h2>Check out our other open source Projects</h2>
-    <a class="button button-primary" href="http://encodetheweb.com/en/encode-projects" target="_blank"> See More </a>
+    <a class="button button-primary" href="https://github.com/PlatinumJay/" target="_blank"> See More </a>
 
     </div>
 </div>
