@@ -45,9 +45,9 @@ function encode_topScroll_anchor(){ ?>
 add_action('admin_menu', 'encode_topScroll_menu');
 
 function encode_topScroll_menu() {
-    $encode_web_icon = 'http://encodetheweb.com/wordpress-theme-img/projects.png';
+    $encode_web_icon = echo plugins_url('simple_top_scroll/img/platinumjay-20x20.png');
 
-	add_menu_page('Encode Web Projects - Top Scroll Settings', 'Simple Top Scroll Settings', 'administrator', 'encode-top-scroll-settings', 'encode_top_scroll_settings_page', $encode_web_icon);
+	add_menu_page('Jayson Exel - Top Scroll Settings', 'Simple Top Scroll Settings', 'administrator', 'encode-top-scroll-settings', 'encode_top_scroll_settings_page', $encode_web_icon);
 }
 
 function encode_top_scroll_settings_page() { ?>
@@ -94,11 +94,11 @@ function encode_top_scroll_settings_page() { ?>
     <div style="width:50%; position:fixed; left:55%;top: 100px;">
 
         <div style="width:350px;margin: 0 auto;">
-            <img src="http://encodetheweb.com/img/Encode-WebProjects.png" width="350" />
+            <img src="<?php echo plugins_url('simple_top_scroll/img/platinumjay.png') ?>" width="350" />
         </div>
     <div style="width:350px; margin:0 auto;">
 
-    <h1> Simple Top Scroll by Encode Web Solutions:</h1>
+    <h1> Simple Top Scroll by Jayson Exel</h1>
 
     <h2>Version: 1.0.1</h2>
 
