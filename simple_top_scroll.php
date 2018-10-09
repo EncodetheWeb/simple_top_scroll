@@ -1,5 +1,5 @@
 <?php
-/* Plugin Name: Simple Top Scroll by Encode Web Projects
+/* Plugin Name: Simple Top Scroll by Jayson Exel
 Plugin URI: https://github.com/PlatinumJay/simple_top_scroll/
 Description: To Top Scroller. Can customize the shape and color. Fades in and out and scrolls smoothly to top when clicked.
 Version: 1.0.1
@@ -43,7 +43,7 @@ function encode_topScroll_anchor(){ ?>
 add_action('admin_menu', 'encode_topScroll_menu');
 
 function encode_topScroll_menu() {
-    $encode_web_icon = echo plugins_url('simple_top_scroll/img/platinumjay-20x20.png');
+    $encode_web_icon = plugins_url('simple_top_scroll/img/platinumjay-20x20.png');
     add_menu_page('Jayson Exel - Top Scroll Settings', 'Simple Top Scroll Settings', 'administrator', 'encode-top-scroll-settings', 'encode_top_scroll_settings_page', $encode_web_icon);
 }
 
